@@ -192,7 +192,7 @@ public:
      * @return An autoreleased Scene object with physics.
      * @js NA
      */
-    static Scene *createWithPhysics();
+    static Scene *createScene();
     
 CC_CONSTRUCTOR_ACCESS:
     bool initWithPhysics();
@@ -220,6 +220,8 @@ public:
     * Set NavMesh debug draw camera.
     */
     void setNavMeshDebugCamera(Camera *camera);
+
+    static Scene* createWithPhysics();
 
 protected:
     NavMesh*        _navMesh;

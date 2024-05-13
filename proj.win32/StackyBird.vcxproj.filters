@@ -10,6 +10,9 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="StackyBird">
+      <UniqueIdentifier>{35982cd1-c66d-4b15-9c6c-abd33a69ea22}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,6 +24,24 @@
     <ClCompile Include="..\Classes\HelloWorldScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\StackyBirdScene.cpp">
+      <Filter>StackyBird</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Bird.cpp">
+      <Filter>StackyBird</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Egg.cpp">
+      <Filter>StackyBird</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\NormalBrick.cpp">
+      <Filter>StackyBird</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ObstacleBrick.cpp">
+      <Filter>StackyBird</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SpikeBrick.cpp">
+      <Filter>StackyBird</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -31,6 +52,30 @@
     </ClInclude>
     <ClInclude Include="..\Classes\HelloWorldScene.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StackyBirdScene.h">
+      <Filter>StackyBird</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Bird.h">
+      <Filter>StackyBird</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Egg.h">
+      <Filter>StackyBird</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ObstacleBrick.h">
+      <Filter>StackyBird</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\NormalBrick.h">
+      <Filter>StackyBird</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameProperties.h">
+      <Filter>StackyBird</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameObject.h">
+      <Filter>StackyBird</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SpikeBrick.h">
+      <Filter>StackyBird</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
