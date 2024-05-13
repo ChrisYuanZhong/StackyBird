@@ -51,8 +51,6 @@ bool Bird::CanSpawnEgg() const
 	// Check the upper right corner of the bird's position after jumping
 	shapes.pushBack(m_sprite->getParent()->getScene()->getPhysicsWorld()->getShapes(m_sprite->getBoundingBox().origin + cocos2d::Vec2(m_sprite->getContentSize().width, (2 * m_sprite->getContentSize().height) - 0.5f)));
 
-	cocos2d::log("shapes size: %d", shapes.size());
-
 	return shapes.size() == 0;
 }
 
@@ -94,7 +92,6 @@ void Bird::onTouchEnded(cocos2d::Touch*, cocos2d::Event*)
 void Bird::onContactBegin(cocos2d::PhysicsContact& contact, cocos2d::PhysicsBody* other)
 {
 	// If the contanct normal is horizontal, then the bird is crashed
-	cocos2d::log("contact normal: %f", contact.getContactData()->normal.x);
 	if (other->getCollisionBitmask() == NORMAL_OBSTACLE_COLLISION_BITMASK && contact.getContactData()->normal.y == 0)
 	{
 		Death();

@@ -30,14 +30,10 @@ public:
     void RemoveGameObject(GameObject* gameObject);
 
 private:
-    //cocos2d::PhysicsWorld* physicsWorld;
-
-    //void SetPhysicsWorld(cocos2d::PhysicsWorld* world) { physicsWorld = world; }
-
-    //cocos2d::Label* labelTouchInfo;
-    //cocos2d::Sprite* sprite;
-
     bool onContactBegin(cocos2d::PhysicsContact& contact);
+
+    void ObstacleGenerator(float delta);
+    float m_ObstacleTimer = 0.0f;
 
     std::unordered_map<cocos2d::PhysicsBody*, GameObject*> m_gameObjects;
 };

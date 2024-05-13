@@ -1,6 +1,9 @@
 #include "StackyBirdScene.h"
 #include "NormalBrick.h"
 #include "SpikeBrick.h"
+#include "GarbageCollectionBrick.h"
+
+#include "GameProperties.h"
 
 USING_NS_CC;
 
@@ -60,6 +63,8 @@ bool StackyBirdScene::init()
 
     auto spike = new SpikeBrick(this, Vec2(800, 225));
 
+    auto garbageCollector = new GarbageCollectionBrick(this, Vec2(-310, 175));
+    
     auto floor = Sprite::create("RoundedSquare.png");
     floor->setContentSize(Size(1000, 350));
     floor->setColor(cocos2d::Color3B::ORANGE);
@@ -83,7 +88,7 @@ bool StackyBirdScene::init()
 
 void StackyBirdScene::update(float delta)
 {
-
+    ObstacleGenerator(delta);
 }
 
 void StackyBirdScene::PushGameObject(std::pair<cocos2d::PhysicsBody*, GameObject*> gameObjectPair)
@@ -126,6 +131,36 @@ bool StackyBirdScene::onContactBegin(cocos2d::PhysicsContact& contact)
         m_gameObjects[b]->onContactBegin(contact, a);
 
     return true;
+}
+
+void StackyBirdScene::ObstacleGenerator(float delta)
+{
+    m_ObstacleTimer += delta;
+
+    if (m_ObstacleTimer >= OBSTACLE_SPAWN_INTERVAL)
+    {
+        // Generate a group of obstacle bricks that can form walls
+        std::vector<Vec2> positions;
+        int numBricks = rand() % (MAX_OBSTACLE_BRICKS_PER_GROUP - MIN_OBSTACLE_BRICKS_PER_GROUP) + MIN_OBSTACLE_BRICKS_PER_GROUP;
+        for (int i = 0; i < numBricks; i++)
+        {
+			float y = LOWEST_OBSTACLE_HEIGHT + (rand() % ((HIGHEST_OBSTACLE_HEIGHT - LOWEST_OBSTACLE_HEIGHT) / BIRD_SIZE)) * BIRD_SIZE;
+			positions.push_back(Vec2(500, y));
+		}
+
+        for (int i = 0; i < numBricks; i++)
+        {
+		    new NormalBrick(this, positions[i]);
+		}
+
+        if ((float)rand() / RAND_MAX < 0.3f)
+		{
+            new SpikeBrick(this, Vec2(600, LOWEST_OBSTACLE_HEIGHT));
+        }
+
+		// Reset the obstacle timer
+		m_ObstacleTimer = 0.0f;
+	}
 }
 
 bool StackyBirdScene::onTouchBegan(Touch* touch, Event* event)

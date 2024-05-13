@@ -24,18 +24,30 @@ Egg::Egg(cocos2d::Layer* layer, const cocos2d::Vec2 position)
 
 void Egg::Break()
 {
-	StackyBirdScene* scene = dynamic_cast<StackyBirdScene*>(m_sprite->getParent());
+	if (m_sprite != nullptr && !m_bIsBroken)
+	{
+		StackyBirdScene* scene = dynamic_cast<StackyBirdScene*>(m_sprite->getParent());
 
-	m_sprite->removeFromParent();
+		m_sprite->removeFromParent();
 
-	if (scene != nullptr)
-		scene->RemoveGameObject(m_sprite->getPhysicsBody());
+		if (scene != nullptr)
+			scene->RemoveGameObject(m_sprite->getPhysicsBody());
+	}
+
+	m_bIsBroken = true;
 }
 
 void Egg::onContactBegin(cocos2d::PhysicsContact& contact, cocos2d::PhysicsBody* other)
 {
 	if (other->getCollisionBitmask() == SPIKE_OBSTACLE_COLLISION_BITMASK)
 	{
+		cocos2d::log("Spike");
+		Break();
+	}
+
+	if (other->getCollisionBitmask() == GARBAGE_COLLECTION_COLLISION_BITMASK)
+	{
+		cocos2d::log("Garbage collection");
 		Break();
 	}
 }

@@ -18,7 +18,7 @@ ObstacleBrick::ObstacleBrick(cocos2d::Layer* layer, const cocos2d::Vec2 position
 
 	m_sprite->setPhysicsBody(brickBody);
 
-	m_sprite->setPosition(position + cocos2d::Vec2(0, 1.5f));
+	m_sprite->setPosition(position + cocos2d::Vec2(0, 1.5f));	// Because the bird bricks cannot perfectly align with the obstacle bricks due to the physics engine
 
 	layer->addChild(m_sprite, 0);
 

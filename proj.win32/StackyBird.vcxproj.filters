@@ -42,6 +42,9 @@
     <ClCompile Include="..\Classes\SpikeBrick.cpp">
       <Filter>StackyBird</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\GarbageCollectionBrick.cpp">
+      <Filter>StackyBird</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -75,6 +78,9 @@
       <Filter>StackyBird</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\SpikeBrick.h">
+      <Filter>StackyBird</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GarbageCollectionBrick.h">
       <Filter>StackyBird</Filter>
     </ClInclude>
   </ItemGroup>

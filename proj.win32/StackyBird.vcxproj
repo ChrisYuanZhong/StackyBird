@@ -153,6 +153,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)\Resources\" /D /E /I /F /Y
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\Bird.cpp" />
     <ClCompile Include="..\Classes\Egg.cpp" />
+    <ClCompile Include="..\Classes\GarbageCollectionBrick.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\NormalBrick.cpp" />
     <ClCompile Include="..\Classes\ObstacleBrick.cpp" />
@@ -166,6 +167,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)\Resources\" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Egg.h" />
     <ClInclude Include="..\Classes\GameObject.h" />
     <ClInclude Include="..\Classes\GameProperties.h" />
+    <ClInclude Include="..\Classes\GarbageCollectionBrick.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\NormalBrick.h" />
     <ClInclude Include="..\Classes\ObstacleBrick.h" />
