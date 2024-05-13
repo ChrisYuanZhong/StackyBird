@@ -27,5 +27,4 @@ private:
 	std::vector<Egg*> m_eggs;
 
 	bool m_bIsDead = false;
-	bool m_bShootyMode = true;
 };

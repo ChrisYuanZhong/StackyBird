@@ -1,8 +1,9 @@
 #pragma once
 
 #define BIRD_SIZE 50
-#define OBSTACLE_BRICK_SIZE 49.5f	// Because the bird bricks cannot perfectly align with the obstacle bricks due to the physics engine
+#define SPAWN_EGG_INTERVAL_WHILE_HOLDING 0.2f
 
+#define OBSTACLE_BRICK_SIZE 49.5f	// Because the bird bricks cannot perfectly align with the obstacle bricks due to the physics engine
 #define OBSTACLE_SPEED 100
 
 #define BIRD_COLLISION_BITMASK 0x00000001

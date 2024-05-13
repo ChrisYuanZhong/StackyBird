@@ -82,11 +82,19 @@ void Bird::SpawnEgg()
 void Bird::onTouchBegan(cocos2d::Touch*, cocos2d::Event*)
 {
 	if (!m_bIsDead)
-		SpawnEgg();
+	{
+		// Invoke SpawnEgg() repeatedly every SPAWN_EGG_INTERVAL_WHILE_HOLDING seconds until the touch is released
+		auto repeatAction = cocos2d::CallFunc::create([this]() { SpawnEgg(); });
+		auto repeat = cocos2d::RepeatForever::create(cocos2d::Sequence::create(repeatAction, cocos2d::DelayTime::create(SPAWN_EGG_INTERVAL_WHILE_HOLDING), nullptr));
+		repeat->setTag(1);
+
+		m_sprite->runAction(repeat);
+	}
 }
 
 void Bird::onTouchEnded(cocos2d::Touch*, cocos2d::Event*)
 {
+	m_sprite->stopActionByTag(1);
 }
 
 void Bird::onContactBegin(cocos2d::PhysicsContact& contact, cocos2d::PhysicsBody* other)
