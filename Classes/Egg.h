@@ -13,6 +13,4 @@ public:
 
 private:
 	cocos2d::Sprite* m_sprite;
-
-	bool m_bIsBroken = false;
 };

@@ -11,7 +11,7 @@ public:
 	static std::pair<cocos2d::PhysicsBody*, GameObject*> CreateBird(cocos2d::Layer* layer);
 	~Bird();
 
-	bool CanSpawnEgg() const;
+	inline bool CanSpawnEgg() const;
 	void Death();
 
 	void onTouchBegan(cocos2d::Touch*, cocos2d::Event*) override;
@@ -28,3 +28,5 @@ private:
 
 	bool m_bIsDead = false;
 };
+
+#include "Bird.inl"

@@ -83,6 +83,9 @@
     <ClInclude Include="..\Classes\GarbageCollectionBrick.h">
       <Filter>StackyBird</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Bird.inl">
+      <Filter>StackyBird</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

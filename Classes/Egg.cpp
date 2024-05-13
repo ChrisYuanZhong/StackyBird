@@ -24,17 +24,19 @@ Egg::Egg(cocos2d::Layer* layer, const cocos2d::Vec2 position)
 
 void Egg::Break()
 {
-	if (m_sprite != nullptr && !m_bIsBroken)
+	if (m_sprite != nullptr)
 	{
 		StackyBirdScene* scene = dynamic_cast<StackyBirdScene*>(m_sprite->getParent());
 
+		auto physicsBody = m_sprite->getPhysicsBody();
+		physicsBody->removeFromWorld();
+
 		m_sprite->removeFromParent();
+		m_sprite = nullptr;
 
 		if (scene != nullptr)
-			scene->RemoveGameObject(m_sprite->getPhysicsBody());
+			scene->RemoveGameObject(physicsBody);
 	}
-
-	m_bIsBroken = true;
 }
 
 void Egg::onContactBegin(cocos2d::PhysicsContact& contact, cocos2d::PhysicsBody* other)

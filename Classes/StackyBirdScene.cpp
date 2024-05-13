@@ -89,6 +89,12 @@ bool StackyBirdScene::init()
 void StackyBirdScene::update(float delta)
 {
     ObstacleGenerator(delta);
+
+    for (auto it = m_gameObjects.begin(); it != m_gameObjects.end(); ++it)
+    {
+		if (it->second != nullptr)
+		    it->second->update(delta);
+    }
 }
 
 void StackyBirdScene::PushGameObject(std::pair<cocos2d::PhysicsBody*, GameObject*> gameObjectPair)
@@ -153,7 +159,7 @@ void StackyBirdScene::ObstacleGenerator(float delta)
 		    new NormalBrick(this, positions[i]);
 		}
 
-        if ((float)rand() / RAND_MAX < 0.3f)
+        if ((float)rand() / RAND_MAX < SPIKE_SPAWN_CHANCE)
 		{
             new SpikeBrick(this, Vec2(600, LOWEST_OBSTACLE_HEIGHT));
         }
