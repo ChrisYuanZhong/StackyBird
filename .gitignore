@@ -112,10 +112,3 @@ proj.win32/Debug.*/
 proj.win32/Release.*/
 
 # others
-
-# CMake
-*CMakeCache.txt
-*CMakeFiles/
-*cmake_install.cmake
-*Makefile
-lib/
