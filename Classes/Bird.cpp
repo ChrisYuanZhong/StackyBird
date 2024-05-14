@@ -64,7 +64,6 @@ void Bird::SpawnEgg()
 		m_sprite->getPhysicsBody()->setVelocity(cocos2d::Vec2(0, 0));
 
 		// Create an egg
-		cocos2d::Vec2 worldPosition = m_sprite->convertToWorldSpace(m_sprite->getPosition());
 		m_eggs.push_back(new Egg(dynamic_cast<cocos2d::Layer*>(m_sprite->getParent()), m_sprite->getPosition() - cocos2d::Vec2(0, m_sprite->getContentSize().height)));
 	}
 }
